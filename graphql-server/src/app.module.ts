@@ -6,6 +6,7 @@ import { AuthorsModule } from './resources/authors/authors.module';
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { Book } from "./resources/books/entities/book.entity";
 import { Author } from "./resources/authors/entities/author.entity";
+import { DateScalar } from "./scalars/date.scalar";
 
 @Module({
   imports: [
@@ -19,12 +20,12 @@ import { Author } from "./resources/authors/entities/author.entity";
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: true,
-      playground: true
+      playground: true,
     }),
     BooksModule,
     AuthorsModule
   ],
   controllers: [],
-  providers: [],
+  providers: [DateScalar],
 })
 export class AppModule {}

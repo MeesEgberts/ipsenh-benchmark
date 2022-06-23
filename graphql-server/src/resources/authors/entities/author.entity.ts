@@ -1,4 +1,4 @@
-import { Field, ObjectType } from '@nestjs/graphql';
+import {Field, Int, ObjectType} from '@nestjs/graphql';
 import { Book } from "../../books/entities/book.entity";
 import { Author as IAuthor } from "../../../models/author.model";
 import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
@@ -16,7 +16,7 @@ export class Author implements IAuthor {
   name: string;
 
   @Column('date')
-  @Field(() => Date, { description: 'The date of birth' })
+  @Field(() => Date, { description: 'The release date of the book' })
   dateOfBirth: Date;
 
   @OneToMany(() => Book, (book) => book.author)
