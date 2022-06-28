@@ -18,7 +18,7 @@ export class BooksService {
 
     findAll() {
         return this.bookRepository.find({
-            relations: ['author']
+            loadRelationIds: true
         });
     }
 
@@ -27,7 +27,7 @@ export class BooksService {
             where: {
                 id,
             },
-            relations: ['author']
+            loadRelationIds: true
         })
     }
 

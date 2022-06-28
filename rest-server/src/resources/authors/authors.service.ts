@@ -17,9 +17,7 @@ export class AuthorsService {
   }
 
   findAll() {
-    return this.authorRepository.find({
-      relations: ['books']
-    })
+    return this.authorRepository.find()
   }
 
   findOne(id: number) {
@@ -27,7 +25,6 @@ export class AuthorsService {
       where: {
         id
       },
-      relations: ['books']
     })
   }
 
